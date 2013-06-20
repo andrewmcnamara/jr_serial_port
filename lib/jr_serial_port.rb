@@ -3,7 +3,13 @@ require_relative 'RXTXcomm.jar'
 
 import('gnu.io.CommPortIdentifier')
 import('gnu.io.SerialPort') { 'GnuSerialPort' }
-
+import('java.lang.System')
+#https://bugs.launchpad.net/ubuntu/+source/rxtx/+bug/367833
+#https://github.com/samaaron/serial-port
+#http://forum.arduino.cc/index.php?topic=106183.0
+#http://rxtx.qbang.org/wiki/index.php/Discovering_comm_portss
+#System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/ttyACM0")
+     System.setProperty("gnu.io.rxtx.SerialPorts", "/dev/ttyACM0:/dev/ttyACM1:/dev/ttyACM2:/dev/ttyUSB0:/dev/ttyUSB1:/dev/ttyUSB2");
 class JrSerialPort
   NONE = GnuSerialPort::PARITY_NONE
 
